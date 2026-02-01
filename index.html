@@ -3,20 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nicole Nake's Portfolio</title>
+  <title>Nikol Nake's Portfolio</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --lilac: #C8A2C8;
+      --lilac-dark: #A678A6;
+      --text-main: #4b4453;
+      --bg-main: #f3f4f6;      /* slightly darker white */
+      --card-bg: #ffffff;
+      --muted: #6b7280;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f9fafb;
-      color: #333;
+      background-color: var(--bg-main);
+      color: var(--text-main);
       line-height: 1.6;
     }
 
+    /* HEADER */
     header {
-      background-color: #34a853;
+      background-color: var(--lilac);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -32,10 +44,6 @@
       font-weight: 600;
     }
 
-    nav {
-      margin-top: 0.5rem;
-    }
-
     nav a {
       color: white;
       margin-left: 1rem;
@@ -45,7 +53,7 @@
     }
 
     nav a:hover {
-      opacity: 0.75;
+      opacity: 0.8;
     }
 
     main {
@@ -54,21 +62,27 @@
       margin: auto;
     }
 
-    .category, .page-section {
-      background-color: white;
+    /* SECTIONS / CARDS */
+    .category,
+    .page-section {
+      background-color: var(--card-bg);
       border-radius: 1rem;
       padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .category:hover {
-      transform: translateY(-5px);
-      transition: transform 0.2s;
+    .category:hover,
+    .page-section:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(200, 162, 200, 0.25);
     }
 
-    .category h2, .page-section h2, .category h3 {
-      color: #2e7d32;
+    .category h2,
+    .page-section h2,
+    .category h3 {
+      color: var(--lilac);
       margin-top: 0;
     }
 
@@ -81,80 +95,78 @@
       margin-bottom: 0.75rem;
     }
 
-    li a {
+    /* LINKS */
+    li a,
+    #contact a {
+      color: var(--lilac);
+      font-weight: 600;
       text-decoration: underline;
-      color: #1f2937;
-      font-weight: 500;
-      transition: color 0.2s;
+      transition: color 0.2s ease;
     }
 
-    li a:hover {
-      color: #4f46e5;
+    li a:hover,
+    #contact a:hover {
+      color: var(--lilac-dark);
     }
 
     .description {
       font-size: 0.875rem;
-      color: #6b7280;
+      color: var(--muted);
       margin-top: 0.25rem;
       margin-left: 1rem;
     }
 
+    /* ABOUT SECTION */
     .about-container {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
       align-items: center;
       justify-content: center;
-      text-align: left;
     }
 
     .about-image {
-      width: 100%;
       max-width: 280px;
-      text-align: center;
     }
 
     .about-image img {
       width: 100%;
-      height: auto;
       border-radius: 1rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.25s ease;
+    }
+
+    .about-image img:hover {
+      transform: scale(1.03);
     }
 
     .about-text {
-      flex: 1 1 300px;
       max-width: 700px;
     }
 
-    .cv-download {
-      margin-top: 1rem;
-    }
-
+    /* CV BUTTON */
     .cv-download a {
       display: inline-block;
-      padding: 0.5rem 1rem;
-      background-color: #34a853;
+      padding: 0.6rem 1.2rem;
+      background-color: var(--lilac);
       color: white;
-      border-radius: 0.5rem;
+      border-radius: 0.6rem;
       text-decoration: none;
       font-weight: 600;
-      transition: background-color 0.2s;
+      transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .cv-download a:hover {
-      background-color: #2c8b45;
+      background-color: var(--lilac-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(200, 162, 200, 0.4);
     }
 
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
         align-items: flex-start;
-      }
-
-      nav {
-        margin-top: 0.75rem;
-        display: flex;
-        flex-wrap: wrap;
       }
 
       nav a {
@@ -165,12 +177,7 @@
 
       .about-container {
         flex-direction: column;
-        align-items: center;
         text-align: center;
-      }
-
-      .about-text {
-        text-align: left;
       }
     }
 
@@ -186,9 +193,10 @@
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>Nicole Nake's ESL Teacher Portfolio</h1>
+    <h1>Nikol Nake's ESL Teacher Portfolio</h1>
     <nav>
       <a href="#about">About Me</a>
       <a href="#portfolio">Portfolio</a>
@@ -204,9 +212,17 @@
           <img src="png/nicole.jpeg" alt="Nicole Nake">
         </div>
         <div class="about-text">
-          <p>Hello! I'm a passionate educator and researcher with a focus on innovative learning strategies, curriculum development, and academic publishing. My work spans across educational studies, journal contributions, and hands-on workshops. This portfolio showcases selected PDFs of my work.</p>
+          <p>
+            Dedicated English Language Teacher with 5 years of experience in language schools and private
+            tutoring. Skilled in lesson planning, syllabus design, and student assessment across diverse
+            learner groups. Experienced in teaching young learners and beginner levels (Junior, A Class, B
+            Class, etc.). Adept at creating engaging, interactive lessons tailored to students’ needs and
+            interests, while integrating technology to enhance learning outcomes. Proficient in developing
+            both digital and print-based exercises, quizzes, and practice activities to support blended and
+            technology-enhanced learning.
+          </p>
           <div class="cv-download">
-            <a href="pdfs/CV - Νικόλ  Νάκε .pdf" download>📄 Download My Curriculum Vitae</a>
+            <a href="pdfs/Nikol_Nake_CV.pdf" download>📄 Download My Curriculum Vitae</a>
           </div>
         </div>
       </div>
@@ -247,7 +263,6 @@
         <ul>
           <li>
             <a href="pdfs/activity 1 description and self evaluation.pdf" download>📄 Activity 1 - Description and Self-Evaluation</a>
-            <div class="description">[Add short description here]</div>
           </li>
         </ul>
 
@@ -255,11 +270,9 @@
         <ul>
           <li>
             <a href="pdfs/activity 2 description and self evaluation.pdf" download>📄 Activity 2 - Description and Self-Evaluation</a>
-            <div class="description">[Add short description here]</div>
           </li>
           <li>
             <a href="pdfs/activity2, 3rd grade.pdf" download>📄 Activity 2 - Description and Self-Evaluation (3rd grade)</a>
-            <div class="description">[Add short description here]</div>
           </li>
         </ul>
 
@@ -267,11 +280,9 @@
         <ul>
           <li>
             <a href="pdfs/activity 3 description and self evaluation.pdf" download>📄 Activity 3 - Description and Self-Evaluation</a>
-            <div class="description">[Add short description here]</div>
           </li>
           <li>
             <a href="pdfs/activity 3, grade 4.pdf" download>📄 Activity 3 - Description and Self-Evaluation (4th grade)</a>
-            <div class="description">[Add short description here]</div>
           </li>
         </ul>
 
@@ -279,11 +290,9 @@
         <ul>
           <li>
             <a href="pdfs/activity 4 description and self evaluation.pdf" download>📄 Activity 4 - Description and Self-Evaluation</a>
-            <div class="description">[Add short description here]</div>
           </li>
           <li>
             <a href="pdfs/ppt, activity 4 (2nd grade).pdf" download>📄 Activity 4 - Description and Self-Evaluation (ppt)</a>
-            <div class="description">[Add short description here]</div>
           </li>
         </ul>
       </div>
@@ -291,7 +300,12 @@
 
     <section id="contact" class="page-section">
       <h2>Contact Me</h2>
-      <p>You can reach me at: <a href="mailto:nknicole472@gmail.com">nknicole472@gmail.com</a></p>
+      <p>You can reach me via e-mail at:
+        <a href="mailto:nknicole472@gmail.com">nknicole472@gmail.com</a>
+      </p>
+      <p>Or on Linkedin:
+        <a href="https://www.linkedin.com/in/nikol-nake-06b2602b1/">Nikol Nake</a>
+      </p>
     </section>
   </main>
 </body>
